@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Ninja Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="gameContainer">
+        <div id="gameArea">
+            <div id="scoreDisplay">Score: 0</div>
+            <div id="livesContainer">
+                <img class="life" src="cross.png">
+                <img class="life" src="cross.png">
+                <img class="life" src="cross.png">
+                <img class="life" src="cross.png">
+                <img class="life" src="cross.png">
+            </div>
+            <div id="gameOver">Game Over</div>
+            <img id="retryButton" src="retry.png" alt="Retry" class="hidden">
+            <div id="highScoreDisplay">High Score: 0</div>
+            <button id="backButton" class="fancyButton hidden">Back to Main Menu</button>
+        </div>
+    </div>
+    <!-- game.html -->
+    
+
+    <script type="module">
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js"
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyA3nKMFkMmTKfcGiHDnT5QTAnBwRFbDNpM",
+            authDomain: "fruit-ninja-b29b2.firebaseapp.com",
+            projectId: "fruit-ninja-b29b2",
+            storageBucket: "fruit-ninja-b29b2.firebasestorage.app",
+            messagingSenderId: "536332668503",
+            appId: "1:536332668503:web:b2478321443955798c9d12",
+            measurementId: "G-P2N0LHL122"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+
+        
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                console.log('User is signed in');
+                // Proceed with the game logic
+            } else {
+                window.location.href = 'start.html';
+            }
+        });
+    </script>
+
+    
+    <script type="module" src="game.js"></script>
+    
+
+
+</body>
+
+</html>
