@@ -1,0 +1,2 @@
+open this folder in VS code
+Open in live server(VS code extension)
